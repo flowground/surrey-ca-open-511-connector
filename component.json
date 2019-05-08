@@ -1,0 +1,102 @@
+{
+    "title": "City of Surrey Open511",
+    "description": "This API provides real time traffic obstruction events occuring within the City of Surrey.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/surrey.ca/open511/0.1/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "http://data.surrey.ca/open511",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "get_areas": {
+            "main": "./lib/actions/get_areas.js",
+            "title": "Provides the geographical boundaries for all the jurisdictions.",
+            "description": "Provides the geographical boundaries for all the jurisdictions.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_areas.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_events": {
+            "main": "./lib/actions/get_events.js",
+            "title": "Provides real time traffic obstruction events.  The event resource provides information about road events (constructions, special events, etc.).",
+            "description": "Provides real time traffic obstruction events.  The event resource provides information about road events (constructions, special events, etc.).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_events.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_jurisdiction": {
+            "main": "./lib/actions/get_jurisdiction.js",
+            "title": "Lists the jurisdictions publishing data through this Open511 API implementation.",
+            "description": "Lists the jurisdictions publishing data through this Open511 API implementation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_jurisdiction.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_jurisdictiongeography": {
+            "main": "./lib/actions/get_jurisdictiongeography.js",
+            "title": "Provides the geographical boundaries for all the jurisdictions.",
+            "description": "Provides the geographical boundaries for all the jurisdictions.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_jurisdictiongeography.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

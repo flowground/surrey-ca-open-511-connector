@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "format": {
+            "type": "string"
+        },
+        "status": {
+            "type": "string"
+        },
+        "severity": {
+            "type": "string"
+        },
+        "jurisdiction": {
+            "type": "string"
+        },
+        "event_type": {
+            "type": "string"
+        },
+        "created": {
+            "type": "string"
+        },
+        "updated": {
+            "type": "string"
+        },
+        "road_name": {
+            "type": "string"
+        },
+        "area_id": {
+            "type": "string"
+        },
+        "bbox": {
+            "type": "string"
+        }
+    }
+}
